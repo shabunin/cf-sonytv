@@ -1,4 +1,4 @@
-CommandFusion module for control Sony TVs.
+Usage
 =========
 
 There's two files in forder "scripts".
@@ -8,7 +8,8 @@ Only url required for declaration. You can try 'IP/IRCC' or 'IP/sony/IRCC'. If i
 
 Then after you declare your tv you can control it by adding JavaScript commands 'your instance'.sendCmd('cmdName')
 
-List of commands:
+List of tested commands:
+=========
 
  Analog,
  Audio,
@@ -58,3 +59,40 @@ List of commands:
  HDMI2,
  HDMI3,
  HDMI4
+
+List of no tested commands:
+=========
+Replay,
+Advance,
+TopMenu,
+PopUpMenu,
+Eject,
+Rec,
+ClosedCaption,
+Teletext,
+GGuide,
+DOT,
+Digital,
+BS,
+CS,
+BSCS,
+Ddata,
+InternetWidgets,
+InternetVideo,
+SceneSelect,
+Mode3D,
+iManual,
+Jump,
+MyEPG,
+ProgramDescription,
+WriteChapter,
+TrackID,
+TenKey,
+AppliCast,
+acTVila,
+DeleteVideo,
+EasyStartUp,
+OneTouchTimeRec,
+OneTouchView,
+OneTouchRec,
+OneTouchRecStop
