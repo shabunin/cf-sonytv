@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>sony-tv</project>
+    <designer>
+    </designer>
+    <size autoposition="scale">
+      <portrait width="320" height="568" />
+      <landscape width="568" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="Huawei U8860">1926AD9623473CFEE8D0EAE760CDB331</device>
+    </devices>
+  </properties>
+  <themes>
+    <theme type="button" name=".btn_sqr[state='0']"><![CDATA[padding: 0px 15px 10px 15px; -webkit-border-image: url(btn_sqr_off.png) 0 15 10 15; text-shadow: rgba(255,255,255,1) 1px 1px 1px; color: Black; font-size: 18px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sqr[state='1']"><![CDATA[padding: 0px 15px 10px 15px; -webkit-border-image: url(btn_sqr_on.png) 0 15 10 15; text-shadow: rgba(255,255,255,1) 1px 1px 1px; color: Black; font-size: 18px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <scripts>
+    <script name="scripts/SonyTV.js" />
+    <script name="scripts/userMain.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <btn j="0" x="4" y="14" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" js="TV.Sony1.sendCmd('HDMI1')">
+        <inactive s="0">HDMI1</inactive>
+        <active s="0">HDMI1</active>
+      </btn>
+      <btn j="0" x="106" y="14" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" js="TV.Sony1.sendCmd('HDMI2')">
+        <inactive s="0">HDMI2</inactive>
+        <active s="0">HDMI2</active>
+      </btn>
+      <btn j="0" x="211" y="14" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" js="TV.Sony1.sendCmd('HDMI3')">
+        <inactive s="0">HDMI3</inactive>
+        <active s="0">HDMI3</active>
+      </btn>
+      <btn j="0" x="104" y="126" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" js="TV.Sony1.sendCmd('HDMI4')">
+        <inactive s="0">HDMI4</inactive>
+        <active s="0">HDMI4</active>
+      </btn>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
