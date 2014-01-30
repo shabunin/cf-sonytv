@@ -58,8 +58,45 @@ var SonyTV = function (url) {
         'HDMI1': 'AAAAAgAAABoAAABaAw==',
         'HDMI2': 'AAAAAgAAABoAAABbAw==',
         'HDMI3': 'AAAAAgAAABoAAABcAw==',
-        'HDMI4': 'AAAAAgAAABoAAABdAw=='
+        'HDMI4': 'AAAAAgAAABoAAABdAw==',
+        
+        //not tested:
+        'Replay': 'AAAAAgAAAJcAAAB5Aw==',
+        'Advance': 'AAAAAgAAAJcAAAB4Aw==',
+        'TopMenu': 'AAAAAgAAABoAAABgAw==',
+        'PopUpMenu': 'AAAAAgAAABoAAABhAw==',
+        'Eject': 'AAAAAgAAAJcAAABIAw==',
+        'Rec': 'AAAAAgAAAJcAAAAgAw==',
+        'ClosedCaption': 'AAAAAgAAAKQAAAAQAw==',
+        'Teletext': 'AAAAAQAAAAEAAAA/Aw==',
+        'GGuide': 'AAAAAQAAAAEAAAAOAw==',
+        'DOT' : 'AAAAAgAAAJcAAAAdAw==',
+        'Digital': 'AAAAAgAAAJcAAAAyAw==',
+        'BS' : 'AAAAAgAAAJcAAAAsAw==',
+        'CS' : 'AAAAAgAAAJcAAAArAw==',
+        'BSCS': 'AAAAAgAAAJcAAAAQAw==',
+        'Ddata': 'AAAAAgAAAJcAAAAVAw==',
+        'InternetWidgets': 'AAAAAgAAABoAAAB6Aw==',
+        'InternetVideo': 'AAAAAgAAABoAAAB5Aw==',
+        'SceneSelect': 'AAAAAgAAABoAAAB4Aw==',
+        'Mode3D' : 'AAAAAgAAAHcAAABNAw==',
+        'iManual' : 'AAAAAgAAABoAAAB7Aw==',
+        'Jump' : 'AAAAAQAAAAEAAAA7Aw==',
+        'MyEPG': 'AAAAAgAAAHcAAABrAw==',
+        'ProgramDescription': 'AAAAAgAAAJcAAAAWAw==',
+        'WriteChapter': 'AAAAAgAAAHcAAABsAw==',
+        'TrackID' : 'AAAAAgAAABoAAAB+Aw==',
+        'TenKey': 'AAAAAgAAAJcAAAAMAw==',
+        'AppliCast': 'AAAAAgAAABoAAABvAw==',
+        'acTVila': 'AAAAAgAAABoAAAByAw==',
+        'DeleteVideo': 'AAAAAgAAAHcAAAAfAw==',
+        'EasyStartUp': 'AAAAAgAAAHcAAABqAw==',
+        'OneTouchTimeRec': 'AAAAAgAAABoAAABkAw==',
+        'OneTouchView' : 'AAAAAgAAABoAAABlAw==',
+        'OneTouchRec' : 'AAAAAgAAABoAAABiAw==',
+        'OneTouchRecStop' : 'AAAAAgAAABoAAABjAw==',
     }; 
+
     module.sendCmd = function (CMD) {
         // Send IRCC command to TV
         var cmdBody = '<?xml version="1.0"?>' +
