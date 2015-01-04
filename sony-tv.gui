@@ -19,28 +19,35 @@
   <themes>
     <theme type="button" name=".btn_sqr[state='0']"><![CDATA[padding: 0px 15px 10px 15px; -webkit-border-image: url(btn_sqr_off.png) 0 15 10 15; text-shadow: rgba(255,255,255,1) 1px 1px 1px; color: Black; font-size: 18px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
     <theme type="button" name=".btn_sqr[state='1']"><![CDATA[padding: 0px 15px 10px 15px; -webkit-border-image: url(btn_sqr_on.png) 0 15 10 15; text-shadow: rgba(255,255,255,1) 1px 1px 1px; color: Black; font-size: 18px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="input" name=".input_default"><![CDATA[ background-color: White; border-width: 0px; color: Black; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="background" name=".newtheme_1"><![CDATA[]]></theme>
   </themes>
   <scripts>
     <script name="scripts/SonyTV.js" />
     <script name="scripts/userMain.js" />
   </scripts>
-  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
-    <portrait>
-      <btn j="0" x="4" y="14" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" js="TV.Sony1.sendCmd('HDMI1')">
+  <page name="Startup" j="0" tags="" transition="None" subtype="None" time="0" ease="">
+    <portrait t="newtheme_1">
+      <btn j="0" x="3" y="248" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" tags="" js="TV.Sony1.sendCmd('HDMI1')">
         <inactive s="0">HDMI1</inactive>
         <active s="0">HDMI1</active>
       </btn>
-      <btn j="0" x="106" y="14" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" js="TV.Sony1.sendCmd('HDMI2')">
+      <btn j="0" x="111" y="248" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" tags="" js="TV.Sony1.sendCmd('HDMI2')">
         <inactive s="0">HDMI2</inactive>
         <active s="0">HDMI2</active>
       </btn>
-      <btn j="0" x="211" y="14" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" js="TV.Sony1.sendCmd('HDMI3')">
+      <btn j="0" x="212" y="248" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" tags="" js="TV.Sony1.sendCmd('HDMI3')">
         <inactive s="0">HDMI3</inactive>
         <active s="0">HDMI3</active>
       </btn>
-      <btn j="0" x="104" y="126" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" js="TV.Sony1.sendCmd('HDMI4')">
+      <btn j="0" x="109" y="360" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" tags="" js="TV.Sony1.sendCmd('HDMI4')">
         <inactive s="0">HDMI4</inactive>
         <active s="0">HDMI4</active>
+      </btn>
+      <input j="0" s="1" x="30" y="18" w="261" h="49" pass="0" autoFocus="0" f="0" t="input_default" l="0" tags="">password</input>
+      <btn j="0" x="192" y="77" w="105" h="106" t="btn_sqr" flip="None" sim="1" l="0" s="1" tags="" js="pairSony1();">
+        <inactive s="0">Pair</inactive>
+        <active s="0">Pair</active>
       </btn>
     </portrait>
     <landscape />

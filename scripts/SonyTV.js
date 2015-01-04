@@ -3,14 +3,19 @@
  * License: http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  */
 
-var SonyTV = function (url) {
+var SonyTV = function (host, controlUrl, pairUrl) {
     var module = {
-        url: '',
+        host: '',
+        controlUrl: '',
+        pairUrl: '',
         IRCC: {}
     };
     
-    module.url = url;
+    module.host = host;
+    module.controlUrl = controlUrl;
+    module.pairUrl = pairUrl;
     module.IRCC = {
+        'Power Off' : 'AAAAAQAAAAEAAAAvAw==',
         'Analog': 'AAAAAgAAAHcAAAANAw==',
         'Audio': 'AAAAAQAAAAEAAAAXAw==',
         'Blue': 'AAAAAgAAAJcAAAAkAw==',
@@ -96,7 +101,29 @@ var SonyTV = function (url) {
         'OneTouchRec' : 'AAAAAgAAABoAAABiAw==',
         'OneTouchRecStop' : 'AAAAAgAAABoAAABjAw==',
     }; 
-
+    module.pairRequest = function(password) {
+      var pairBody = '{'+
+          '"id":13,' +
+          '"method":"actRegister",' +
+          '"version":"1.0",' +
+          '"params":[{"clientid":"iViewer:1","nickname":"iViewer"},[{"clientid":"iViewer:1","value":"yes","nickname":"iViewer","function":"WOL"}]]' +
+        '}';
+      var pairHeaders = {
+          'User-Agent' : 'iViewer/4',
+          'Content-Type': 'application/json'
+        };
+      if (password !== undefined && password !== '') { 
+        pairHeaders['Authorization'] = 'Basic ' + Base64.encode(':' + password);
+      }
+      CF.request(module.host + module.pairUrl, 'POST', pairHeaders, pairBody,
+        function (status, headers, body) {
+            if (status == 200) {
+                //CF.log('Pair request response: status:' + status + ' headers: ' + JSON.stringify(headers) + '  body : ' +body);
+            } else {
+                CF.log('SonyTV(' + module.host + ') error: pair request returned status ' + status);
+            }
+        });
+    };
     module.sendCmd = function (CMD) {
         // Send IRCC command to TV
         var cmdBody = '<?xml version="1.0"?>' +
@@ -112,16 +139,16 @@ var SonyTV = function (url) {
             'Content-Type': 'text/xml; charset=utf-8',
             'SOAPAction': '"urn:schemas-sony-com:service:IRCC:1#X_SendIRCC"'
         };
-        CF.request(module.url,
+        CF.request(module.host,
             'POST', cmdHeaders, cmdBody,
             function (status, headers, body) {
                 if (status == 200) {
                     //CF.log("Form data sent");
                 } else {
-                    CF.log('SonyTV(' + module.url + ')error: request returned status ' + status);
+                    CF.log('SonyTV(' + module.host + ') error: sendCmd request returned status ' + status);
                 }
             });
     };
     
     return module;
-}
+};
