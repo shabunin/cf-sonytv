@@ -21,9 +21,13 @@
     <theme type="input" name=".input_default"><![CDATA[ background-color: White; border-width: 0px; color: Black; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
     <theme type="background" name=".newtheme_1"><![CDATA[]]></theme>
   </themes>
+  <tokens>
+    <token name="authCookie" value="0" persist="1" />
+  </tokens>
   <scripts>
     <script name="scripts/SonyTV.js" />
     <script name="scripts/userMain.js" />
+    <script name="scripts/base64.js" />
   </scripts>
   <page name="Startup" j="0" tags="" transition="None" subtype="None" time="0" ease="">
     <portrait t="newtheme_1">

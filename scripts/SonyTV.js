@@ -8,6 +8,8 @@ var SonyTV = function (host, controlUrl, pairUrl) {
         host: '',
         controlUrl: '',
         pairUrl: '',
+        authCookie: '',
+        regexCookie: /(auth=[^\;]*)/,
         IRCC: {}
     };
     
@@ -101,6 +103,18 @@ var SonyTV = function (host, controlUrl, pairUrl) {
         'OneTouchRec' : 'AAAAAgAAABoAAABiAw==',
         'OneTouchRecStop' : 'AAAAAgAAABoAAABjAw==',
     }; 
+    module.parseCookie = function(headers) {
+        if (headers['Set-Cookie'] !== undefined) {
+            if(module.regexCookie.test(headers['Set-Cookie'])) {
+                var regArr = module.regexCookie.exec(headers['Set-Cookie']);
+                module.authCookie = regArr[1] + ';';
+                module.saveCookieToken();
+            }
+        }
+    };
+    module.saveCookieToken = function() {
+      //replace this function by yours
+    };
     module.pairRequest = function(password) {
       var pairBody = '{'+
           '"id":13,' +
@@ -119,6 +133,7 @@ var SonyTV = function (host, controlUrl, pairUrl) {
         function (status, headers, body) {
             if (status == 200) {
                 //CF.log('Pair request response: status:' + status + ' headers: ' + JSON.stringify(headers) + '  body : ' +body);
+                module.parseCookie(headers);
             } else {
                 CF.log('SonyTV(' + module.host + ') error: pair request returned status ' + status);
             }
@@ -139,7 +154,10 @@ var SonyTV = function (host, controlUrl, pairUrl) {
             'Content-Type': 'text/xml; charset=utf-8',
             'SOAPAction': '"urn:schemas-sony-com:service:IRCC:1#X_SendIRCC"'
         };
-        CF.request(module.host,
+        if (module.authCookie !== '') {
+            cmdHeaders['Cookie'] = module.authCookie;
+        }
+        CF.request(module.host + module.controlUrl,
             'POST', cmdHeaders, cmdBody,
             function (status, headers, body) {
                 if (status == 200) {
